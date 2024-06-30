@@ -1,0 +1,10 @@
+#take input from user
+name<-readline(prompt="Enter your name:")
+age<-readline(prompt="enter your age:")
+as.integer(age)
+print(paste("hello my name is:",name,"and my age is:",age))
+paste("hello","233","abs")
+paste("hello","233","abs",sep="-")
+cat("hello","233","abs")
+cat("hello","233","abs",sep="-")
+paste0("hello","233","abs")

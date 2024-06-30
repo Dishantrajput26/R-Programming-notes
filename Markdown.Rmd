@@ -1,0 +1,74 @@
+---
+title: "Markdown_DB"
+author: "markdown"
+date: "2024-04-16"
+output: html_document
+---
+```{r}
+
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+```{r}
+# Load the dplyr package (if not already loaded)
+library(dplyr)
+
+# Calculate the sum of mpg for each carburetor
+aggr <- mtcars %>%
+  group_by(carb) %>%
+  summarise(summpg = sum(mpg))
+
+# Print the aggregated data
+print(aggr)
+
+```
+
+```{r}
+View(mtcars)
+```
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+```{r}
+# Create the pie chart
+pie(aggr$summpg, labels = aggr$carb, main = "Total MPG by Carburetor")
+
+```
+
+You can also embed plots, for example:
+```{r}
+# Load the mtcars dataset (if not already loaded)
+data(mtcars)
+
+# Create a frequency table for the 'cyl' column
+cyl_table <- table(mtcars$cyl)
+
+```
+
+```{r}
+# Create the bar chart
+barplot(cyl_table,
+        xlab = "Number of Cylinders",
+        ylab = "Frequency",
+        main = "Bar Chart: Number of Cylinders in mtcars",
+        col = "skyblue")
+
+```
+
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
